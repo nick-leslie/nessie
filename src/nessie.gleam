@@ -361,6 +361,7 @@ fn from_dns_name(dyn: Dynamic) -> String {
   let atom_from_dynamic = fn() {
     dyn
     |> atom.from_dynamic()
+    |> result.replace_error([dynamic.DecodeError("","",[""])])
     |> result.map(atom.to_string)
   }
 
